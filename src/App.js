@@ -1,30 +1,20 @@
 import './App.css';
 import myimage from './assets/image.jpeg'
+import { useState } from 'react';
 function App() {
-   let name = 'khunthihan'
+let [name , setName] = useState('khunthihan') // [getter,setterfun]
 
   let changeName = () => {
-    name = 'aung aung'
-    console.log(name)
+   setName("aung aung") 
+    console.log(name) // the console value is khhun thi han because the setName is a little bit longer so js doesn't wait the result and take the default value to show
+
   }
 
   return (
     <div className="app">
        <h1>hello {name}</h1>
-       
+       <button onClick={changeName}>Change name</button>
        <br/>
-{/* 
-      you can dynamically take photo like this but 
-       relative path
-        <img src="/image.jpeg"  alt="gg" />
-          <br/>
-        absolute path
-         <img src="http://localhost:3000/image.jpeg" /> */}
-
-
-        <br/>
-        {/* this is the way of taking photo with import */}
-        <img src={myimage} />
     </div>
   );
 }
