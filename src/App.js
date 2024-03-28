@@ -43,12 +43,13 @@ let deletePost = (id)=>{
 
       <h1>Posts</h1>
        <ul>
-          {posts.map((post)=>(
+          {!!posts.length&& posts.map((post)=>(   // Boolean(post.lenght) == !!post.length
              <li key = {post.id } >
-              {post.title}
-              <button onClick={()=>deletePost(post.id)}>Delete</button>
+                {post.title}
+                <button onClick={()=>deletePost(post.id)}>Delete</button>
               </li>
           ))}
+          {!posts.length && <p>No Post available</p>}
        </ul>
        <br/>
     </div>
