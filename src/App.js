@@ -1,8 +1,25 @@
 import './App.css';
 import myimage from './assets/image.jpeg'
 import { useState } from 'react';
+
 function App() {
 let [name , setName] = useState('khunthihan') // [getter,setterfun]
+let [posts , setPosts] = useState([
+  {
+    id : 1 ,
+    title : 'First post'
+  },
+  {
+    id : 2 ,
+    title : 'second post'
+  },
+  {
+    id : 3 ,
+    title : 'third post'
+  }
+])
+console.log(posts)
+console.log(name)
 
 let changeName = () => {
   setName("aung aung") 
@@ -14,6 +31,15 @@ let changeName = () => {
     <div className="app">
        <h1>hello {name}</h1>
        <button onClick={changeName}>Change name</button>
+
+
+
+      <h1>Posts</h1>
+       <ul>
+          {posts.map((post)=>(
+             <li key={post.id}>{post.title}</li>
+          ))} 
+       </ul>
        <br/>
     </div>
   );
